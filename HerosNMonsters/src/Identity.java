@@ -2,22 +2,22 @@ public class Identity {
     private String name;
     private int lvl;
     private int hp;
-    private int curentHp;
+    private int currentHp;
     private int maxHp;
     private int fp;
-    private int curentFp;
+    private int currentFp;
     private int ap;
     private int speed;
 
     public Identity(String name, int lvl, int hp, int fp, int ap, int speed) {
         this.name = name;
         this.lvl = lvl;
-        this.hp = lvlMod(hp); //---------> bin mir nicht sicher.
-        this.curentHp = hp;
+        this.hp = hp; //---------> bin mir nicht sicher.
+        this.currentHp = hp;
         this.maxHp = maxHpCalk();
-        this.fp = lvlMod(fp);
-        this.curentHp = fp;
-        this.ap = lvlMod(ap);
+        this.fp = fp;
+        this.currentHp = fp;
+        this.ap = ap;
         this.speed = speed;
     }
 
@@ -36,7 +36,7 @@ public class Identity {
     }
 
     public int getCurentHp() {
-        return curentHp;
+        return currentHp;
     }
 
     public int getMaxHp() {
@@ -47,8 +47,8 @@ public class Identity {
         return fp;
     }
 
-    public int getCurentFp() {
-        return curentFp;
+    public int getCurrentFp() {
+        return currentFp;
     }
 
     public int getAp() {
@@ -74,7 +74,7 @@ public class Identity {
     }
 
     public void setCurentHp(int curentHp) {
-        this.curentHp = curentHp;
+        this.currentHp = curentHp;
     }
 
     public void setMaxHp(int maxHp) {
@@ -85,8 +85,8 @@ public class Identity {
         this.fp = fp;
     }
 
-    public void setCurentFp(int curentFp) {
-        this.curentFp = curentFp;
+    public void setCurrentFp(int currentFp) {
+        this.currentFp = currentFp;
     }
 
     public void setAp(int ap) {
@@ -106,19 +106,19 @@ public class Identity {
                 "name='" + name + '\'' +
                 ", lvl=" + lvl +
                 ", hp=" + hp +
-                ", curentHp=" + curentHp +
+                ", curentHp=" + currentHp +
                 ", maxHp=" + maxHp +
                 ", fp=" + fp +
-                ", curentFp=" + curentFp +
+                ", curentFp=" + currentFp +
                 ", ap=" + ap +
                 ", speed=" + speed +
                 '}';
     }
 
-    public int lvlMod(int val) {
+    /*public int lvlMod(int val) {
         double tVal = val * Math.pow(1.1, lvl);
         return (int) (Math.floor(tVal / 10.0) * 10);
-    }
+    }*/
 
     public int maxHpCalk() {
         double fMaxHp = hp + (hp * 0.5);
@@ -126,10 +126,10 @@ public class Identity {
     }
 
     public void looseOverHeal(){
-        if(curentHp <= maxHp && curentHp > hp){
-            curentHp -= (int) (Math.ceil( hp / 100));
-            if (curentHp <= hp){
-                curentHp = hp;
+        if(currentHp <= maxHp && currentHp > hp){
+            currentHp -= (int) (Math.ceil( hp / 100));
+            if (currentHp <= hp){
+                currentHp = hp;
             }
         }
     }
@@ -139,21 +139,21 @@ public class Identity {
     }
 
     public void death() {
-        if (curentHp >= 0) {
-            curentHp = 0;
+        if (currentHp >= 0) {
+            currentHp = 0;
             System.out.println(name + " just died!");
         }
     }
 
     public void maxFp() {
-        if (curentFp >= fp) {
-            curentFp = fp;
+        if (currentFp >= fp) {
+            currentFp = fp;
         }
     }
 
     public void minFp() {
-        if (curentFp <= 0) {
-            curentFp = 0;
+        if (currentFp <= 0) {
+            currentFp = 0;
             System.out.println(name + " is out of FP!");
         }
     }
