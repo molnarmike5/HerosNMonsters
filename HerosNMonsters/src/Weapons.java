@@ -4,8 +4,8 @@ public class Weapons {
         Weapon fist = new Weapon (
                 "fist",
                 20,
-                20,
-                Identity.getSpead,
+                20
+                //new Enchantment("fire", 5)
         );
 
     }

@@ -4,10 +4,10 @@ public class Weapon {
     private int speedBonus;
     //private Enchantment enchantment;
 
-    private Weapon(String weaponName, int atkBonus, int speadBonus /*Enchantment enchantment*/){
+    public Weapon(String weaponName, int atkBonus, int speedBonus /*Enchantment enchantment*/){
         this.weaponName = weaponName;
         this.atkBonus = atkBonus;
-        this.speedBonus = speadBonus;
+        this.speedBonus = speedBonus;
         //this.Enchantment = enchantment;
     }
 
